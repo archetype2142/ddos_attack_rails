@@ -1,6 +1,13 @@
 class Rack::Attack
 
   # blocklist_ip("192.168.0.101")
+
+  Rack::Attack.blocklisted_response = lambda do |env|
+  # Using 503 because it may make the attacker think that he had successfully
+  # DOSed the site. Rack::Attack returns 403 for blocklists by default
+    [ 503, {}, ['This is a custom message for forbidden users']]
+  end
+
   ### Configure Cache ###
 
   # If you don't want to use Rails.cache (Rack::Attack's default), then

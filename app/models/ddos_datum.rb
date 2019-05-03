@@ -1,0 +1,2 @@
+class DdosDatum < ApplicationRecord
+end

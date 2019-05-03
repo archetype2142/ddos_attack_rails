@@ -1,4 +1,5 @@
-class HomepageController < ApplicationController
+class HomepageController < ApplicationController  
   def index
+	@data = DdosDatum.all
   end
 end

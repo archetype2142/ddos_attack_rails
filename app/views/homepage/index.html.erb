@@ -1,1 +1,22 @@
-<h1>Hello world</h1>
+<div class="container">
+	<h1 class="text-center" style="margin-top: 50px; margin-bottom: 50px">DDoS data</h1>
+	<hr>
+	<%= form_for DdosDatum.new do |form| %>
+	  <%= form.text_area :data %>
+	  <br>
+	  <%= form.submit class: "btn btn-primary" %>
+	<% end %>
+
+	<div class="container" style="margin-top: 50px;">
+		<% if @data.count > 0 %>
+			<h2>Stored Data</h2>
+		<% end %>
+		<% @data.each_with_index do |data, index| %>
+		  <p> 
+		  	<%= index + 1 %>.  
+		    <%= data.data %> <%= link_to 'Delete', ddos_datum_path(data), :method => 'delete' %>
+		  </p>
+		<% end %>
+	</div>
+</div>
+

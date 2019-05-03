@@ -39,6 +39,10 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Preventing application layer attacks using this middleware
 gem 'rack-attack'
 
+# bootstrap for custom styling
+gem 'bootstrap'
+gem 'jquery-rails'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
