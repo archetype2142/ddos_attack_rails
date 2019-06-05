@@ -3,8 +3,8 @@ class DdosDataController < ApplicationController
 
   def create
     puts params
-  	DdosDatum.create!(data: params[:data])
-  	redirect_to :root
+  	ddos = DdosDatum.create!(permitted_params)
+    render json: ddos
   end
 
   def destroy
@@ -13,7 +13,7 @@ class DdosDataController < ApplicationController
   end
 
 private
-  # def permitted_params
-  # 	params.require(:ddos_datum).permit(:data, :id)
-  # end
+  def permitted_params
+  	params.permit(:data, :id)
+  end
 end
